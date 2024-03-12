@@ -1,0 +1,12 @@
+.btns button {
+    background-color: #7289da;
+    color: #fff;
+    border: 0;
+    padding: 0.5em 1em;
+    border-radius: 10px;
+    margin: 0.5em;
+}
+
+.btns a {
+    text-decoration: none;
+}
