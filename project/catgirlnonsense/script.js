@@ -53,7 +53,7 @@ function uwu_scrunkly(length) {
     return "aw " + uwu_keysmash(length - 3);
 }
 
-function generateCatgirl(amount) {
+function generateCatgirl(amount, options = {}) {
     const actions = [
         "*tilts head*",
         "*twitches ears slightly*",
@@ -82,45 +82,45 @@ function generateCatgirl(amount) {
             continue;
         }
 
-        if (random === 0 && true) {
+        if (random === 0 && options.uwu === true) {
             const str = "uwu";
             output += str;
-        } else if (random === 1 && true) {
+        } else if (random === 1 && options.nonsense === true) {
             // nonsense
             const str = uwu_nonsense(Math.floor(Math.random() * (25 - 5 + 1)) + 5);
             output += str;
-        } else if (random === 2 && true) {
+        } else if (random === 2 && options.nya === true) {
             // nyaaa~
             const str = uwu_nya(Math.floor(Math.random() * (6 - 3 + 1)) + 3);
             output += str;
-        } else if (random === 3 && true) {
+        } else if (random === 3 && options.blush === true) {
             // >///<
             const str = uwu_blush(Math.floor(Math.random() * (5 - 3 + 1)) + 3);
             output += str;
-        } else if (random === 4 && true) {
+        } else if (random === 4 && options.three === true) {
             // :3
             const str = ":3";
             output += str;
-        } else if (random === 5 && true) {
+        } else if (random === 5 && options.actions === true) {
             // Actions
             const str = uwu_action(Math.floor(Math.random() * actions.length));
             output += str;
-        } else if (random === 6 && true) {
+        } else if (random === 6 && options.keysmashing === true) {
             // Keysmash
             const str = uwu_keysmash(Math.floor(Math.random() * (25 - 5 + 1)) + 5);
             output += str;
-        } else if (random === 7 && true) {
+        } else if (random === 7 && options.screaming === true) {
             // Screaming
             const str = "A".repeat(Math.floor(Math.random() * (5 - 3 + 1)) + 3);
             output += str;
-        } else if (random === 8 && true) {
+        } else if (random === 8 && options.scrunkly === true) {
             // Aww the scrunkly
             const str = uwu_scrunkly(Math.floor(Math.random() * (25 - 5 + 1)) + 5);
             output += str;
-        } else if (random === 9 && true) {
+        } else if (random === 9 && options.owo === true) {
             // owo
             output += "owo";
-        } else if (random === 10 && true) {
+        } else if (random === 10 && options.ara === true) {
             // ara ara
             output += "ara ara~";
         }
@@ -130,6 +130,7 @@ function generateCatgirl(amount) {
         }
 
         output += " ";
+        output = output.replace(/\s{2,}/g, " ");
         last = random;
 
         looplimit += 1;

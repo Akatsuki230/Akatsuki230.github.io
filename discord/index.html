@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Discord Server</title>
+        <link rel="stylesheet" href="/styles/global.css" />
+        <style>
+            img {
+                max-width: calc(100% - 5px);
+                margin: 10px 0;
+            }
+
+            #discordrules {
+                display: none;
+                position: fixed;
+                top: 100px;
+                left: 100px;
+                width: calc(100% - 200px);
+                height: 800px;
+            }
+
+            iframe {
+                width: 100%;
+                height: 100%;
+            }
+        </style>
+        <script type="text/javascript">
+            var agreeCountdown = 10;
+            var interval = null;
+
+            function showRules() {
+                var discordrules = document.getElementById("discordrules");
+                discordrules.style.display = "block";
+                interval = setInterval(function() {
+                    agreeCountdown--;
+                    var agreeButton = document.getElementById("agree");
+                    agreeButton.innerText = "I agree (" + agreeCountdown + ")";
+                    if (agreeCountdown <= 0) {
+                        agreeButton.disabled = false;
+                        agreeButton.innerText = "I agree";
+                        clearInterval(interval);
+                    }
+                }, 1000);
+            }
+
+            function hideRules() {
+                var discordrules = document.getElementById("discordrules");
+                discordrules.style.display = "none";
+                clearInterval(interval);
+                agreeCountdown = 10;
+                document.getElementById("agree").disabled = true;
+                document.getElementById("agree").innerText = "I agree (10)";
+            }
+
+            function agreeToRules() {
+                window.location.href = "https://discord.gg/YFksXpXnn6";
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/projects/">Projects</a></li>
+                    <li><a href="/socials/">Socials</a></li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <h1>Akatsuki's Discord Server</h1>
+            <p>Here you can join the Discord server that is owned by Akatsuki.</p>
+            <p>Here you can get help with any of her mods, chat with the community or ask her questions.</p>
+            <p>You will get video announcements, new project announcements and ability to get involved in developing of some projects.</p>
+            <p>
+                <button onclick="showRules()">Join</button>
+            </p>
+        </main>
+        <footer>
+            <p>Copyright ©️ 2024 アカツキ</p>
+        </footer>
+
+        <div id="discordrules">
+            <h2>Before joining please acknowledge these rules</h2>
+            <iframe src="/discord/rules/" title="Discord Rules" width="500" height="500" sandbox=""></iframe>
+            <button id="agree" disabled onclick="agreeToRules()">I agree (10)</button>
+            <button id="disagree" onclick="hideRules()">I disagree</button>
+        </div>
+    </body>
+</html>
